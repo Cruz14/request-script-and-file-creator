@@ -1,0 +1,9 @@
+{
+  "name": "requestScriptandFileCreate",
+  "version": "0.0.1",
+  "author": "Carlos Cruz",
+  "description": "Script for make request to server and create .json file whit result. The script create file while minuts of data row parameter",
+  "dependencies": {
+    "jsonfile": "^2.2.3"
+  }
+}
