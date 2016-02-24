@@ -15,7 +15,6 @@ function makeRequest(start,end){
     path:'', // path of query 
   };
   var end_date = new Date(end);
-  var end_date_val = end_date;
   end_date = end_date.toISOString();
   var start_date = new Date(start);
   start_date = start_date.toISOString();
@@ -44,7 +43,7 @@ callback = function(response) {
     var lastDate = new Date(result.rows[result.rows.length-1].date);
     var diff = timeDiference(startDate,lastDate);
     if (diff <= 10) {
-      // Make query 10 minutes more of lsat date
+      // Make query 10 minutes more of last date
       var newDateObj = new Date(lastDate.getTime() + 10 * 60000);
       makeRequest(lastDate,newDateObj);
       first = false;
@@ -53,7 +52,7 @@ callback = function(response) {
       }
     }else{
       createFile(result,fileName);
-      // Make query 10 minutes more of lsat date
+      // Make query 10 minutes more of last date
       var newDateObj = new Date(lastDate.getTime() + 10 * 60000);
       startDate = lastDate;
       makeRequest(lastDate,newDateObj);
